@@ -141,23 +141,6 @@
       el.addEventListener('click', playClick);
     });
 
-    document.querySelectorAll('[data-testid="button-access-game"]:not([data-rc-e])').forEach(function (el) {
-      el.setAttribute('data-rc-e', '1');
-      el.addEventListener('click', function (e) {
-        if (!tokenGeneratedInSession) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          showWarning();
-        }
-      }, true);
-    });
-
-    document.querySelectorAll('[data-testid="button-generate-token"]:not([data-rc-t])').forEach(function (el) {
-      el.setAttribute('data-rc-t', '1');
-      el.addEventListener('click', function () {
-        tokenGeneratedInSession = true;
-      });
-    });
   });
 
   document.addEventListener('click', function (e) {
